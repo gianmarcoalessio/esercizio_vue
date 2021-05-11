@@ -1,47 +1,42 @@
 <template>
   <div class="m-5">
     <!-- v-model permette di creare un collegamento con una variabile locale dentro data in una variabile di ambiente -->
-    <input v-model="persona.nome" type="text" placeholder="Nome" />
-    <input
-      v-model="persona.cognome"
-      class="ml-5"
-      type="text"
-      placeholder="Cognome"
-    />
-  </div>
-  <div class="m-5">
-    <input
-      v-model="persona.numero"
-      type="text"
-      placeholder="Numero di telefono"
-    />
+    <cInsert :user="persona" />
     <button
-      @click="getData()"
+      @click="addUser()"
       class="ml-5 p-2 bg-yellow-400 rounded-md hover:bg-yellow-700 text-blue-900"
     >
       invia info
     </button>
+    <pre class="text-white">
+        {{persona}}
+    </pre>
   </div>
   <div class="flex flex-wrap w-full text-blue-900">
     <div v-for="(u, i) in info" :key="i" class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-        <cScheda :user="u" />
+        <cScheda :user="u" @cancella="cancellaRiga(i)" />
     </div>
   </div>
+  <pre class="text-white">
+      {{info}}
+  </pre>
 </template>
 
 <script>
+import cInsert from "@comp/insertfunge.vue"
 import cScheda from "@comp/scheda.vue";
 export default {
   components: {
+    cInsert,  
     cScheda,
   },
   data() {
     return {
       info: [],
       persona: {
-        nome: "",
-        cognome: "",
-        numero: "",
+        username: "",
+        name: "",
+        email: "",
       },
     };
   },
@@ -52,9 +47,18 @@ export default {
       .then((json) => (this.info = json));
   },
   methods: {
-    getData() {
-      this.info.push(this.persona);
+    addUser() {
+        var u = Object.assign({},this.persona) //var u =JSON.parse(JSON.stringify(this.persona))
+      this.info.push(u);
+      this.persona={
+        username: "",
+        name: "",
+        email: "",
+      }
     },
+    cancellaRiga(parameter){
+        this.info.splice(parameter,1)
+    }
   },
 };
 </script>
