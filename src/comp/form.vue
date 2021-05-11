@@ -1,6 +1,11 @@
 <template>
   <div class="m-5">
     <!-- v-model permette di creare un collegamento con una variabile locale dentro data in una variabile di ambiente -->
+    <div class="m-8">
+        <cInsertMulti v-model:name="persona.name" v-model:username="persona.username" v-model="persona.email"/>
+    </div>
+    
+    
     <cInsert :user="persona" />
     <button
       @click="addUser()"
@@ -24,10 +29,12 @@
 
 <script>
 import cInsert from "@comp/insertfunge.vue"
+import cInsertMulti from "@comp/insert.vue"
 import cScheda from "@comp/scheda.vue";
 export default {
   components: {
     cInsert,  
+    cInsertMulti,
     cScheda,
   },
   data() {
