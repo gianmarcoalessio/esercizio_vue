@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "nodemon server.js"
   },
   "dependencies": {
     "liburno_bklib": "^3.0.15"
