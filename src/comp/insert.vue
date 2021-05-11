@@ -3,8 +3,8 @@
     <h2>input multiplo esempio</h2>
   <input type="text" class="block w-full text-center mb-2 rounded-md px-2 py-1" :value="username" @input="changeValue('username',$event)" placeholder="username">
    <input type="text" class="block w-full text-center mb-2 rounded-md px-2 py-1" :value="name" @input="changeValue('name',$event)" placeholder="name">
-   <!-- <input type="text" class="block w-full text-center mb-2 rounded-md px-2 py-1" :value="modelValue" @input="changeValue('modelValue',$event)" placeholder="email"> -->
-   <p v-text="modelValue" class="block w-full bg-white text-center text-black h-12 mb-2 rounded-md px-2 py-1" @input="changeP($event)" contenteditable="true"></p> 
+   <input type="text" class="block w-full text-center mb-2 rounded-md px-2 py-1" :value="modelValue" @input="changeValue('modelValue',$event)" placeholder="email">
+   <p v-text="modelValue" class="block w-full bg-gray-200 text-center text-black h-12 mb-2 rounded-md px-2 py-1" @blur="changeP($event)"  contenteditable="true"></p>
    </div>
 </template>
 
