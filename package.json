@@ -2,7 +2,7 @@
   "name": "tmp1",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "NODE_PORT=3050 vite",
     "build": "vite build",
     "serve": "nodemon server.js"
   },

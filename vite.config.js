@@ -6,7 +6,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@css': '/css',
-      '@comp': '/src/comp'
+      '@comp': '/src/comp',
+      '@eng': '/src/eng'
     }
   },
   plugins: [vue()]

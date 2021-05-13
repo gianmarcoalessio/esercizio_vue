@@ -1,13 +1,12 @@
 <template>
-  <h1>Pasticcio al radicchio</h1>
-  <jcpForm />
+  <jTwitter />
 </template>
 
 <script>
-import jcpForm from "@comp/form.vue"
+import jTwitter from "@comp/twitter.vue"
 export default {
   components:{
-    jcpForm
+    jTwitter
     }
 }
 </script>
