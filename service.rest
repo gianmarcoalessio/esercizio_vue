@@ -1,0 +1,9 @@
+###
+
+post http://localhost:3050/servizio/jServizio
+content-type: application/json
+
+{
+    "_UID":"guest"
+}
+

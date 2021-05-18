@@ -34,7 +34,7 @@ var addfile = (file, pars) => {
   console.log(`${Yellow}...${file}${Reset}`);
   app.use('/' + file, pars);
 }
-//addfile('blog',require('./srcbk/blog'))
+addfile('servizio',require('./srcbk/servizio'))
 //addfile('regex',require('./srcbk/regex'))
 
 server.listen(port, () => {
