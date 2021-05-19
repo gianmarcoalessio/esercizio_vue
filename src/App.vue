@@ -1,7 +1,16 @@
 <template>
     <d-warning/>
     <dWait/>
-    <jMain/>
+    <div class="w-full bg-gray-200">
+     <template v-if="mustlogin()">
+       <button class="btn" @click="ask=false">Close Login</button>
+
+     </template>
+    <template v-else>
+      <jMain/>
+    </template>
+    </div>
+    
 </template>
 
 <script>
@@ -15,10 +24,59 @@ var ii=0;
 // d-msg
 // d-login 
 // router
+
 export default {
   components: {
     jMain,dWait
   },
- 
-}
+  data() {
+    return {
+      post: post,
+      ask: false,
+      loaded: false,
+      wait: false,
+    };
+  },
+  methods: {
+    mustlogin() {
+      if (!post.init.login && post.init.isguest) return false; // non è previsto il login
+      if (!post.user || !post.creds || !post.creds.token) return true;
+      return this.ask;
+    },
+  },
+  created() {
+    bus.on("login", e => {
+      this.ask = true;
+      this.mustlogin();
+    });
+   
+    post.token().then(d=>{
+      console.log("xxx");
+      this.loaded=true;
+    }).catch(e=>{
+      console.log("err");
+      post.postbase("auth0/getconfig").then(d=>{
+          post.config = d.config;
+          post.langs = d.langs;
+          post.init = d.init;
+          console.log(post.init);
+          if (!post.init.isguest) {
+            this.ask=true;
+            this.mustlogin();
+          }
+          this.loaded=true;
+      }).catch(e=>{
+        this.ask=true;
+        this.mustlogin()
+        this.loaded=true;
+      })
+
+    })
+  },
+  beforeUnmount() {
+    bus.$off("login");
+    bus.$off("wait");
+  }
+};
 </script>
+

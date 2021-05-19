@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
-    <button @click="close()" v-if="mostra" class="fixed inset-x-0 bottom-0 w-full lg:max-w-3xl text-left mx-auto mb-2 bg-orange-200 border-t-4 border-orange-600 z-50 " >
-      <div class="absolute top-0 right-0">
-        <svg-close class="w-8 text-orange-300 hover:text-orange-600 fill-current" /> 
+    <button @click="close()" v-if="mostra" class="fixed inset-x-0 bottom-0 w-full lg:max-w-3xl text-left mx-auto mb-2 bg-orange-200 border-t-4 border-orange-600 z-50 p-2 " >
+      <div class="absolute top-0 right-0 mr-2 mt-1">
+        <svg-close class="w-4 text-orange-800 hover:text-orange-500 fill-current" /> 
       </div>
       <div class="text-base-600 text-xl px-8 pt-2 block overflow-hidden whitespace-pre">{{txt2}}</div>
       <div class="text-orange-600 text-sm font-bold px-8 block overflow-hidden">{{txt}}</div>

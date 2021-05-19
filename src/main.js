@@ -5,7 +5,11 @@ import '@css/style.css'
 
 // componenti
 import dWarning from "@eng/dwarning.vue";
-import svgClose from "@svg/dog.vue"
+import dGroup from "@eng/dgroup.vue";
+import dMsg from "@eng/dmsg.vue";
+import dTab from "@eng/dtab.vue";
+import dStars from "@eng/dstars.vue";
+import svgClose from "@svg/close.vue"
 
 if (!Date.prototype.toInt) {
     Date.prototype.toInt = function () {
@@ -22,6 +26,10 @@ if (!Date.prototype.toFloat) {
 const app = createApp(App)
 // registrazione componenti globali
 app.component("d-warning", dWarning);
+app.component("d-stars", dStars);
+app.component("d-group", dGroup);
+app.component("d-msg", dMsg);
+app.component("d-tab", dTab);
 
 // registrazione svg
 app.component("svg-close", svgClose);

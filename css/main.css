@@ -1,5 +1,10 @@
 
 .btn {
-    @apply bg-gray-500 hover:bg-gray-800 text-gray-300 hover:text-white px-4 py-2 m-2;
+    @apply bg-base-800 hover:bg-base-500 text-gray-200 border-base-900 rounded shadow-md hover:text-white px-4 py-2 m-2;
 }
+
+:focus {
+    @apply outline-none !important;
+}
+  
 
