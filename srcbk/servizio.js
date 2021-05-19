@@ -24,8 +24,16 @@ router
 .post('/jServizio' ,(req, res) => {
     try {
         var u=dm.checkuser(req,0)
+        var {count} = req.body;
         var db=dbBlog();
         db.chiudi();
+        u.count=count;
         res.send(new Response(req,u))
-    } catch(e) { res.send(new Response(req,undefined,e.message)); }
+    } catch(e) { res.send(new Response(req,undefined,e)); }
+})
+.post('/jServizioErr' ,(req, res) => {
+    try {
+        var u=dm.checkuser(req,9);
+        res.send(new Response(req,u))
+    } catch(e) { res.send(new Response(req,null,e)); }
 })

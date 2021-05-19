@@ -100,11 +100,11 @@ export var tonum = (s,dec=-1) => {
             n = Number(x[0]);
         } else if (/^\s*\-?\s*[0-9]+(\.[0-9]+)?\s*$/gi.test(s)) {
             n = parseFloat(s);
-        } else if (/[\s\d\(\)\-\+\/\*\^\.]+/gi.test(s)) {
+        }/* else if (/[\s\d\(\)\-\+\/\*\^\.]+/gi.test(s)) {
             try {
                 n = eval(s);
             } catch { }
-        }
+        }*/
     }
     if (dec>=0) {
         switch(dec) {

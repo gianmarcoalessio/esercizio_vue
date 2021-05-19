@@ -7,8 +7,13 @@ export default defineConfig({
     alias: {
       '@css': '/css',
       '@comp': '/src/comp',
-      '@eng': '/src/eng'
+      '@eng': '/src/eng',
+      '@svg': '/src/eng/svg'
     }
   },
+  server: {
+    port:3050,
+  },
+
   plugins: [vue()]
 })

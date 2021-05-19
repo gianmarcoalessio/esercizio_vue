@@ -10,6 +10,7 @@ class Bus{
  
 
     off(key, fn) {
+        // prova
         if (this.data[key]) {
             for (var i = 0; i < this.data[key].length; i++) {
                 if (this.data[key][i] === fn) {
@@ -19,13 +20,10 @@ class Bus{
             };
         }
     }
-    $on(key,fn) { this.on(key,fn) }
-    $off(key,fn) { this.off(key,fn) }
-
     emit(key, pars) {
         if (this.data[key]) {
             for (var fn of this.data[key]) {
-                fn([pars]);
+                fn(pars);
             };
         }
     }
@@ -35,4 +33,4 @@ class Bus{
 
 }
 
-export default new Bus();
+export var bus = new Bus();

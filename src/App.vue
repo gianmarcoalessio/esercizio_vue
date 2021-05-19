@@ -1,16 +1,24 @@
 <template>
-  <jTwitter />
+    <d-warning/>
+    <dWait/>
+    <jMain/>
 </template>
 
 <script>
-import jTwitter from "@comp/twitter.vue"
+import jMain from "@comp/main.vue";
+import dWait from "@eng/wait.vue"
+import {bus} from "@eng/bus";
+import {post} from "@eng/post";
+var ii=0;
+
+// todo: 
+// d-msg
+// d-login 
+// router
 export default {
-  components:{
-    jTwitter
-    }
+  components: {
+    jMain,dWait
+  },
+ 
 }
 </script>
-
-<style>
-
-</style>
