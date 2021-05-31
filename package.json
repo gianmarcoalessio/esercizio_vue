@@ -28,10 +28,13 @@
       "imggruppo": "@my"
     },
     "datafolder": "data/_files",
+    "static": {
+      "libri": "/Users/alessiosfamily/libri"
+    },
     "port": 3000,
     "sito": "http://localhost:3000",
-    "tk": "577b7c29a8b9e755f8a60b3c4756d7c9a8f7e4d4ccfa912d9d98805d4cd2d55d99520a34f446b1544d0bbb51b8e13a50202cd017cb81e7a4f7ac8e9cfa6c658f",
-    "tr": "a798d0acc310fb6b0f631ccce90ed8ab95b6ffafc588a049a4d3bf37557a9053166a7524b516e3d618e244a9f5d3d1437f22020bf7425a5b7c2b70cbb6a85059",
+    "tk": "c6a4155b904f9a5f6067303bd7649d163a1e60c6a198778b6035168467a2029b41f8041966cc3300a3479f18bb3d0603857401f3e09a5773b5f5d60609ebd98c",
+    "tr": "9e531a388c40dad64d2878e8ea4923940db0b1240ba8d93394a34bb6fdd60a9b25bb9eb3bbd05749f77e621f01eda57d3d6323741bd728190ce3b98dda07733e",
     "expire_tk": "1d"
   },
   "nodemonConfig": {

@@ -3,6 +3,16 @@
     @apply bg-base-800 hover:bg-base-500 text-gray-200 border-base-900 rounded shadow-md hover:text-white px-4 py-2 m-2;
 }
 
+.btn1 {
+    @apply border px-4 py-1 border-base-400 text-base-400 shadow rounded hover:border-base-700 hover:text-base-700;
+}
+
+.btn2 {
+   @apply text-gray-500 underline hover:text-base-700;
+}
+
+
+
 :focus {
     @apply outline-none !important;
 }

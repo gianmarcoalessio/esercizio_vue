@@ -1,9 +1,11 @@
 ###
 
-post http://localhost:3050/servizio/jServizio
+post http://localhost:3000/servizio/jGetPage
 content-type: application/json
 
 {
-    "_UID":"guest"
+    "_UID":"guest",
+    "page":19
+
 }
 

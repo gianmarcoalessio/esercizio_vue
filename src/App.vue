@@ -2,13 +2,14 @@
     <d-warning/>
     <dWait/>
     <div class="w-full bg-gray-200">
-     <template v-if="mustlogin()">
-       <button class="btn" @click="ask=false">Close Login</button>
-
-     </template>
-    <template v-else>
-      <jMain/>
-    </template>
+      <template v-if="mustlogin()">
+        <d-login @close="ask=false"/>
+      </template>
+      <div v-show="!mustlogin()" >
+        <d-scrollmanager>
+            <jMain />
+        </d-scrollmanager>
+      </div>
     </div>
     
 </template>
@@ -16,8 +17,11 @@
 <script>
 import jMain from "@comp/main.vue";
 import dWait from "@eng/wait.vue"
+import dLogin from "@eng/login.vue";
+import dScrollmanager from "@eng/dscrollmanager.vue";
 import {bus} from "@eng/bus";
 import {post} from "@eng/post";
+
 var ii=0;
 
 // todo: 
@@ -27,7 +31,7 @@ var ii=0;
 
 export default {
   components: {
-    jMain,dWait
+    jMain,dWait,dLogin,dScrollmanager
   },
   data() {
     return {
@@ -75,7 +79,6 @@ export default {
   },
   beforeUnmount() {
     bus.$off("login");
-    bus.$off("wait");
   }
 };
 </script>

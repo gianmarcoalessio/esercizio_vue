@@ -10,6 +10,9 @@ import dMsg from "@eng/dmsg.vue";
 import dTab from "@eng/dtab.vue";
 import dStars from "@eng/dstars.vue";
 import svgClose from "@svg/close.vue"
+import svgTwitter from "@svg/twitter.vue";
+
+
 
 if (!Date.prototype.toInt) {
     Date.prototype.toInt = function () {
@@ -33,10 +36,11 @@ app.component("d-tab", dTab);
 
 // registrazione svg
 app.component("svg-close", svgClose);
+app.component("svg-twitter", svgTwitter);
 
 
 // filtri
-app.config.globalProperties.$$ = {
+app.config.globalProperties.filtro = {
     currencyUSD(value) {
         return '$' + value
     },

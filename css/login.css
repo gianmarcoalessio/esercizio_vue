@@ -1,0 +1,17 @@
+.input-fill, .dinput-fill input,.dinput-fill textarea ,.dinput-fill select {
+    @apply  mt-1 py-1  rounded px-4 text-gray-700 border border-gray-400 inline-block w-full ;
+}
+
+.btni0 {
+    @apply font-bold border bg-base-500 border-base-500 text-white px-4 py-1 shadow rounded hover:bg-base-400 hover:border-base-400;
+}
+
+.btni1 {
+    @apply border px-4 py-1  text-gray-200 border-gray-200 shadow rounded hover:border-base-300 hover:text-base-300;
+}
+
+.btni2 {
+    @apply underline py-1  text-gray-200 hover:text-base-300;
+}
+    
+    

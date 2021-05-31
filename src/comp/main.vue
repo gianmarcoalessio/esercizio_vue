@@ -1,6 +1,7 @@
 <template>
-  <div class="max-w-5xl mx-auto bg-white text-gray-700 min-h-screen p-2">
-    <d-tab :titles="['Servizi', 'messaggi', 'Login']" @change="cambiatab($event)">
+  <div class="max-w-5xl mx-auto min-h-screen bg-white text-gray-700 p-2 ">
+     
+    <d-tab :titles="['Servizi', 'login', 'messaggi','altro','scroll']" @change="cambiatab($event)">
       <template v-slot:id0>
         <h1 class="text-xl">gestione servizi: {{ post.baseurl }}</h1>
         <button class="btn" @click="sendwarning()">Manda un Warning</button>
@@ -10,30 +11,30 @@
       <d-group
           title="Raggruppa elementi"
           class="border border-base-300 rounded p-3 bg-gray-200"
-        >
+          >
           <pre>{{ data }}</pre>
-          <p>{{ $$.ggmmaa(curdate) }}</p>
+          <p>{{ filtro.ggmmaa(curdate) }}</p>
           <d-stars v-model="stelle" class="text-base-400 text-sm" editable />
           nstelle:{{ stelle }}
-          <svg-close class="w-8 text-orange-600 fill-current" />
+          <svg-twitter class="w-32 text-red-600 fill-current" />
         </d-group>
       </template>
       <template v-slot:id1>
-        <button class="btn" @click="wait(true)">wait</button>
         <button class="btn" @click="login(true)">login</button>
-        <button class="btn" @click="ismsg = true">Msg1</button>
       </template>
-        <template v-slot:id2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, fugiat nobis error officiis quidem nam totam impedit blanditiis architecto illo animi reiciendis amet dolores quasi nulla aspernatur harum eius magni.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae error aspernatur quaerat unde iusto ex at deserunt. Vero facilis reprehenderit nihil, earum, tempora impedit fugiat iste excepturi consectetur, qui dolore eos ipsa natus libero? Tempore adipisci voluptas quaerat qui cupiditate fugit atque recusandae nulla sequi repellendus, pariatur, exercitationem veniam ab provident quia omnis quasi enim aliquam voluptatibus. Maxime dolore sint animi eius adipisci quis deleniti eum consectetur quibusdam delectus blanditiis perspiciatis itaque sapiente facere alias explicabo fugit inventore minus iste, non id? Iure sint tempore nisi minima beatae, omnis qui ipsum similique quia architecto quos culpa illum atque deleniti sunt, in unde corrupti rerum illo. Minus delectus dolorum quidem accusantium ducimus enim, voluptas facere? Laboriosam eos quidem molestiae, vitae obcaecati minus itaque earum, aliquid placeat praesentium, perferendis distinctio rem! Debitis, reprehenderit nisi! Dolore molestiae id alias, non soluta minus sed magni inventore ab. Sequi facere similique eos neque rerum earum, magnam, nesciunt quae mollitia reprehenderit quaerat? Quos blanditiis alias architecto cupiditate ea quis! Animi ea quas sapiente vero provident tempore adipisci temporibus culpa deserunt, molestiae fuga earum. Fugiat, rerum sit? Adipisci, facere rem. A optio ex eligendi quaerat animi. Quaerat necessitatibus soluta, illo animi consequatur praesentium adipisci non ullam cum dignissimos blanditiis impedit nam tempore omnis fugiat eaque reprehenderit. Sunt quia quam animi atque, voluptatum nesciunt labore quod. Hic aliquam optio autem quam! Iusto tempora dignissimos similique voluptatibus minus! Neque quis voluptatibus ex consequuntur iusto odit culpa hic, tenetur ad. Ea sed amet at, soluta perspiciatis quod, sit distinctio nostrum dolor eius necessitatibus suscipit repellendus aperiam hic ipsam odit dolorum, minima esse iste inventore aliquam a ipsa. Facilis alias iure ab animi cupiditate voluptatum eum placeat distinctio, sequi dolor illum provident consectetur, autem nobis dolorem et doloribus temporibus amet qui, quasi natus quam. Velit illo explicabo, vitae rem sed voluptatum quos odio molestias. Debitis obcaecati consectetur pariatur corrupti aliquid explicabo dolore, unde at, saepe voluptatem officia adipisci ipsum iusto officiis provident eum porro reprehenderit harum eius fugit tenetur vero eaque doloribus minima. Veritatis dicta perspiciatis tempora laboriosam, perferendis blanditiis. Animi dignissimos possimus quod, nobis autem odio aspernatur doloribus. Accusantium, odit eius placeat quod eveniet ullam tempora iste, dignissimos obcaecati perspiciatis itaque. Et eveniet est ad sit enim distinctio repudiandae cupiditate nihil quo amet architecto placeat temporibus obcaecati ipsa laudantium velit, vero mollitia, nisi fugit voluptas excepturi explicabo harum repellendus. Eum accusantium non nostrum ipsa enim, tempore neque odit commodi ea laborum voluptatem at, perferendis alias architecto, dicta inventore dolore quos culpa possimus. Vel incidunt hic consectetur amet, neque qui. Eos, sequi nulla voluptates repellat magni totam non modi quibusdam dolore harum, labore reiciendis repudiandae consectetur hic eligendi provident cum sint laboriosam. Ex maiores sed non iusto cum voluptatem, repudiandae atque ipsam autem quisquam nihil molestiae suscipit! Sit maiores officia sequi! Sint quia consequuntur iste quaerat et accusamus est explicabo dolorum ipsum esse corporis aliquid ad ullam officiis inventore mollitia, sed, sapiente ab numquam reprehenderit iure, nam provident quidem. Omnis ut molestias praesentium, mollitia facilis sit aliquam eius perspiciatis enim!</p>
+      <template v-slot:id2>
+        <button class="btn" @click="wait(true)">wait</button>
+        <button class="btn" @click="ismsg = true">Msg1</button>
         </template>
+      <template v-slot:id3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, odio quae! Earum eius facere tempora laudantium laborum architecto consequuntur quod, blanditiis reiciendis? Cum ab iure esse reiciendis recusandae explicabo, accusamus soluta voluptatum? Aspernatur eos beatae minus nemo earum nulla ipsum neque, suscipit quas nobis! Ipsam eveniet magnam tempore tenetur debitis totam aspernatur beatae inventore officia quas odit, deleniti modi quibusdam neque unde hic ipsa dolorem saepe temporibus cum autem minima itaque aperiam provident. Exercitationem aliquid facere iste quae fuga excepturi, nemo earum dicta sunt voluptate quibusdam aut esse, quidem laudantium placeat voluptates dignissimos corporis enim? Totam dolore fugiat libero accusamus eveniet blanditiis, deserunt consequatur reiciendis ex. Earum obcaecati laudantium et animi, voluptatibus eius ut ea quae repellendus delectus eaque consectetur maiores cumque accusantium minima possimus aliquid numquam qui magni! Aliquid aut quis numquam quaerat quas veniam sed quos ullam eius eligendi officiis dolorem vel, eos perspiciatis ipsum repudiandae sapiente dicta quibusdam corporis, recusandae voluptatum reiciendis. Excepturi magnam dolore odit, fuga quidem ad at, aliquam mollitia deserunt voluptatum eligendi tempora libero, porro qui rem nesciunt? Velit soluta dolore laudantium error ipsum, blanditiis exercitationem culpa. Laudantium neque aliquid distinctio soluta fugit molestias reprehenderit officiis debitis, molestiae delectus dolorum labore in, itaque saepe quidem quaerat odio voluptatibus, maxime nesciunt sequi quos. Quam officiis labore id esse cumque corrupti, suscipit, neque eveniet illo nisi necessitatibus voluptate iusto ex distinctio perspiciatis excepturi doloribus rerum ea inventore itaque. Illo assumenda vero consectetur blanditiis accusantium pariatur? Assumenda impedit itaque repudiandae odio illum recusandae ad consequatur magnam distinctio veritatis, autem, eaque hic laboriosam quidem cum nihil quasi quas velit animi molestias optio pariatur dolor debitis. Blanditiis est optio debitis nobis repellat? Aperiam maxime beatae in saepe iste adipisci vel enim sunt cupiditate temporibus repudiandae illum unde, quaerat nam molestias quae alias ad earum nemo, deserunt odit. Asperiores sit soluta fuga quos unde tenetur atque ipsam culpa nihil earum delectus hic cumque nulla sint, reprehenderit voluptatibus itaque maxime repellendus? Adipisci aliquam dolorem obcaecati, corrupti omnis vel dignissimos consequatur vitae modi, voluptas iusto harum in accusamus nobis molestiae suscipit placeat quasi sapiente incidunt qui veniam assumenda quisquam eveniet provident? Similique beatae perferendis ab fuga alias et cupiditate nam ullam. Temporibus deserunt fugit nam quaerat maiores, nostrum, expedita voluptates totam impedit beatae, non cupiditate magnam quibusdam nisi commodi veritatis quisquam quam cumque id? Rerum, repellendus numquam vitae officiis praesentium explicabo placeat modi, dolorum tempora quod voluptatum suscipit. Culpa facilis explicabo distinctio qui alias, possimus debitis deleniti dolore totam et molestiae delectus ipsa dicta. Deleniti expedita nam delectus minus dignissimos dolor ad repellendus corrupti rerum tenetur? Deleniti tempora fugit ipsam incidunt minima amet, molestiae consequatur modi ullam assumenda deserunt labore perspiciatis quis placeat voluptate temporibus. Qui explicabo, voluptatum magni unde accusamus eius impedit ratione id deleniti inventore optio rerum maiores repellat consequatur dolor. Quo laudantium, maiores dolore cupiditate quisquam excepturi ipsa! Omnis, ipsam. Quasi tempora ullam incidunt qui numquam perspiciatis non quia ratione magni eum, facere iure, eaque provident repellendus saepe dicta vel doloremque ducimus illum sapiente soluta, consequatur sint? Incidunt, delectus.</p>
+      </template>
+      <template v-slot:id4>
+        prova
+        <jTreet/>
+      </template> 
     </d-tab>
-
-    <d-msg
-      v-if="ismsg"
-      @close="ismsg = false"
-      title="titolo"
-      text="prova"
+    <d-msg v-if="ismsg" @close="ismsg = false" title="titolo" text="prova"
       yesno
     />
   </div>
@@ -42,14 +43,20 @@
 <script>
 import { bus } from "@eng/bus";
 import { post } from "@eng/post";
+import jTreet from "@comp/jtreet.vue";
 var ii = 0;
 
 // todo:
-// d-msg
-// d-login
 // router
 export default {
+  components: {jTreet},
   methods: {
+    goscroll() {
+      console.log("goscroll");
+    },
+    gotop() {
+      console.log("gotop");
+    },
     login() {
       bus.emit("login");
     },
@@ -69,12 +76,16 @@ export default {
     },
     wait(mode) {
       bus.emit("wait");
-      setTimeout(() => {
-        bus.emit("nowait");
-      }, 5000);
+      setTimeout(()=>{
+        bus.emit("wait",false);     
+      },2000)
+      
     },
     cambiatab(e) {
-      console.log(`tab:`,e)
+      //console.log(`tab:`,e)
+    },
+    goscroll()  {
+
     }
   },
   data() {

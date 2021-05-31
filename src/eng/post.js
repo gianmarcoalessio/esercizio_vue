@@ -3,7 +3,7 @@ import { bus }  from "@eng/bus";
 
 class Post {
     constructor() {
-        this.baseurl = import.meta.env.MODE=="development"?(import.meta.env.VITE_BASEURL || "http://localhost:3000/") : "http://localhost:3000/"
+        this.baseurl = import.meta.env.MODE=="development"?(import.meta.env.VITE_BASEURL || "http://localhost:3000/") : "/"
         this.creds = getStorage("creds")
         if (!this.creds) {
             this.creds={ token:'guest'};
