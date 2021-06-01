@@ -11,6 +11,7 @@ export default {
     app.config.globalProperties.$fetch = (add, param) => {
       return post.post(add, param);
     }
+    app.config.globalProperties.$post=post;
     app.config.globalProperties.$bus=bus;
     app.config.globalProperties.$globalemit = (key, param) => {
       return bus.emit(key, param);
@@ -56,11 +57,22 @@ export default {
       }
     }
     app.mixin({
+      data() {
+        return {
+          post
+        }
+      },
       methods: {
         windowBack() {
             window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
+        },
+        logga(a) {
+            alert(a);
+        },
+        fetch(indirizzo,param) {
+          return post.post(indirizzo,param);
         }
-      },
+      }
     })
 
 

@@ -1,8 +1,11 @@
 <template>
   <div class="btn w-32" @click="clear()">Clear</div>
+  <div class="btn w-32" @click="logga('çiao')">Logga</div>
+  <pre>{{post.user}}</pre>
+  
   <pre v-for="(x,i) in data" :key="i">{{x}}</pre>
-  <div class="btn w-32" v-if="hasmore" @click="more()">more</div>
- 
+  <!-- <div class="btn w-32" v-if="hasmore" @click="load()">more</div> -->
+  
 </template>
 
 <script>
@@ -16,8 +19,10 @@ export default {
   },
   created() {
     this.load(0);
+    this.$bus.on('more',this.load)
   },
   beforeUnmount() {
+    this.$bus.off('more',this.load);
   },
   methods: {
     clear() {

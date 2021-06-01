@@ -6,20 +6,18 @@
         <d-login @close="ask=false"/>
       </template>
       <div v-show="!mustlogin()" >
-        <!-- <d-scrollmanager> -->
-            <router-view></router-view>
-            
-        <!-- </d-scrollmanager> -->
+        <d-scrollmanager>
+            <router-view/>
+        </d-scrollmanager>
       </div>
     </div>
     
 </template>
 
 <script>
-import jMain from "@comp/main.vue";
 import dWait from "@eng/wait.vue"
 import dLogin from "@eng/login.vue";
-// import dScrollmanager from "@eng/dscrollmanager.vue";
+
 import {bus} from "@eng/bus";
 import {post} from "@eng/post";
 
@@ -27,8 +25,8 @@ var ii=0;
 
 export default {
   components: {
-    jMain,dWait,dLogin,
-    // dScrollmanager
+    dWait,dLogin,
+
   },
   data() {
     return {

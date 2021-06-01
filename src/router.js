@@ -1,17 +1,22 @@
 import { createRouter,createWebHistory } from 'vue-router'
 import {bus } from '@eng/bus';
-import Home from "@comp/main.vue"
+import Main from "@comp/main.vue"
 import About from "@comp/about.vue"
 import Altro from "@comp/altro.vue"
-
+import jTreet from "@comp/jtreet.vue"
+import jacopo from "@comp/jacopo.vue"
 
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', component: Main },
   { path: '/altro/:id', component: Altro },
   { path: '/altro', component: Altro },
   { path: '/about', component: About },
+  { path: '/jtreet',component:jTreet },
+  { path: '/jacopo/:id',component:jacopo },
+  { path: '/jacopo',component:jacopo }
 ]
+
 export const router = createRouter({
   history: createWebHistory(),
   routes, // short for `routes: routes`

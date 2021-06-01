@@ -53,3 +53,17 @@ router
         res.send(new Response(req,{hasmore,data}))
     } catch(e) { res.send(new Response(req,null,e)); }
 })
+.post('/jGetCliente' ,(req, res) => {
+    try {
+        var u=dm.checkuser(req,0);
+        var {id}=req.body;
+        var data={
+            id,
+            name: `nome ${id}`,
+            cognome: `cognome ${id}`   
+        };
+        res.send(new Response(req,data))
+    } catch(e) { res.send(new Response(req,null,e)); }
+})
+
+

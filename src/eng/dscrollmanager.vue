@@ -3,7 +3,7 @@
   <div class="absolute bottom-0 right-0 mr-4 mb-4 z-index-20" :style="stylebtntop" >
     <button class="text-2xl bg-base-600 text-white w-10 h-10 shadow-md rounded-full hover:bg-base-800"  @click="scrolltop()">⇪</button>
     </div>
-    <div ref="main" class="flex-1 h-screen overflow-y-auto" @scroll="goscroll()">
+    <div ref="contenitore" class="flex-1 h-screen overflow-y-auto" @scroll="goscroll()">
         <slot />
     </div>
   </div>
@@ -18,9 +18,8 @@ export default {
   },
   methods: {
     goscroll() {
-      var v = this.$refs.main;
-      this.bttop = v.scrollTop > 0;
-      this.stylebtntop = this.bttop ? { display: "block" } : { display: "none" };
+      var v = this.$refs.contenitore;
+      this.stylebtntop=  { display:v.scrollTop>0? "block":"none" }
       this.smallmenu = v.scrollTop < 50 ? false : true;
       if (v.scrollTop + v.getClientRects()[0].height * 1.3 > v.scrollHeight) {
          bus.emit("more");
