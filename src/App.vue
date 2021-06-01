@@ -6,9 +6,10 @@
         <d-login @close="ask=false"/>
       </template>
       <div v-show="!mustlogin()" >
-        <d-scrollmanager>
-            <jMain />
-        </d-scrollmanager>
+        <!-- <d-scrollmanager> -->
+            <router-view></router-view>
+            
+        <!-- </d-scrollmanager> -->
       </div>
     </div>
     
@@ -18,20 +19,16 @@
 import jMain from "@comp/main.vue";
 import dWait from "@eng/wait.vue"
 import dLogin from "@eng/login.vue";
-import dScrollmanager from "@eng/dscrollmanager.vue";
+// import dScrollmanager from "@eng/dscrollmanager.vue";
 import {bus} from "@eng/bus";
 import {post} from "@eng/post";
 
 var ii=0;
 
-// todo: 
-// d-msg
-// d-login 
-// router
-
 export default {
   components: {
-    jMain,dWait,dLogin,dScrollmanager
+    jMain,dWait,dLogin,
+    // dScrollmanager
   },
   data() {
     return {
@@ -47,15 +44,15 @@ export default {
       if (!post.user || !post.creds || !post.creds.token) return true;
       return this.ask;
     },
-  },
-  created() {
-    bus.on("login", e => {
+    login() {
       this.ask = true;
       this.mustlogin();
-    });
+    }
+  },
+  created() {
+    bus.on("login",this.login)
    
     post.token().then(d=>{
-      console.log("xxx");
       this.loaded=true;
     }).catch(e=>{
       console.log("err");
@@ -78,7 +75,7 @@ export default {
     })
   },
   beforeUnmount() {
-    bus.$off("login");
+    bus.off("login",this.login);
   }
 };
 </script>

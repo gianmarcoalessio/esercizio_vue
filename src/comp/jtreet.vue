@@ -1,13 +1,11 @@
 <template>
   <div class="btn w-32" @click="clear()">Clear</div>
   <pre v-for="(x,i) in data" :key="i">{{x}}</pre>
-  <!-- <div class="btn w-32" v-if="hasmore" @click="more()">more</div> -->
+  <div class="btn w-32" v-if="hasmore" @click="more()">more</div>
  
 </template>
 
 <script>
-import { bus } from "@eng/bus";
-import { post } from "@eng/post";
 export default {
   data() {
     return {
@@ -17,11 +15,9 @@ export default {
     };
   },
   created() {
-    bus.on("more", this.load);
     this.load(0);
   },
   beforeUnmount() {
-    bus.off("more",this.load);
   },
   methods: {
     clear() {
@@ -29,7 +25,7 @@ export default {
       this.load();
     },
     async load() {
-      var t = await post.post("servizio/jGetPage", { page:this.page });
+      var t = await this.$fetch("servizio/jGetPage", { page:this.page });
       if (this.page == 0) {
         this.data = t.data;
       } else {

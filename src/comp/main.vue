@@ -8,6 +8,7 @@
         <button class="btn" @click="senddata()">Manda Dati</button>
         <button class="btn" @click="senddata1()">Manda Dati 1</button>
         <button class="btn" @click="senderr()">Manda Errore</button>
+        <router-link class="btn" to="/altro/11">Altro</router-link>
       <d-group
           title="Raggruppa elementi"
           class="border border-base-300 rounded p-3 bg-gray-200"

@@ -1,6 +1,6 @@
 <template>
-    <div class="max-w-6xl p-4 mx-auto">
-      <div class="text-3xl text-base-500">
+    <div class="max-w-6xl p-4 mx-auto min-h-screen bg-gray-200 shadow-xl">
+      <div class="text-3xl text-base-500 mb-2">
           Users management:
       </div>
       
@@ -12,12 +12,12 @@
           autocomplete="off"
           type="text"
           placeholder="...filtra..."
-          class="block mb-3 text-xl px-10 rounded-sm shadow-sm border border-gray-400 w-full text-gray-600 shadow-md"
+          class="block mb-3 text-xl px-10 rounded-lg shadow border border-gray-400 w-full text-gray-600 shadow-md"
           v-model="cerca"
         />
              </div>
-        <button class="ml-3 btn1 h-8" @click="askcrea()">add user</button>  
-        <button class="ml-3 btn h-8" @click="load()">reload</button>  
+        <button class="btn -mt-1 mb-5 text-sm" @click="askcrea()">add user</button>  
+        <button class="btn -mt-1 mb-5 text-sm" @click="load()">reload</button>  
         </div>
         <div>
           <table class="table">
@@ -34,28 +34,28 @@
              <tr v-for="(x,i) in fusers" :key="i">
                 <td>{{x.rowid}}</td>
                 <td class="input">
-                    <input type="text" class="" v-model="x.name"> 
+                    <input type="text" class="px-2 border  border-base-300 rounded-sm" v-model="x.name"> 
                 </td>
                 <td class="w-4/12 input"> 
-                    <input type="text" class="w-full" v-model="x.email"> 
+                    <input type="text" class="px-2 w-full border  border-base-300 rounded-sm" v-model="x.email"> 
                 </td>
                 <td>
-                  <button class="btn1 text-sm px-2 mx-3" 
+                  <button class="btn text-sm px-2 py-1 mx-1" 
                       v-if="x.rowid!=1"
                       @click="uu=x;uu.password=generatePassword(12);isnewpassword=true">pass
                   </button>
 
                 </td>
                 <td class="input ">
-                    <input type="text" class="w-full" v-model="x.mod"> 
+                    <input type="text" class="px-2 w-full border  border-base-300 rounded-sm" v-model="x.mod"> 
                 </td>
                
                 <td><d-check v-model="x.annulla" v-if="x.rowid!=1"></d-check></td>
                 <td class="input">
-                    <input  v-if="x.rowid!=1" type="number" class="w-20"  v-model="x.level"> 
+                    <input  v-if="x.rowid!=1" type="number" class="w-20 px-2  border  border-base-300 rounded-sm"  v-model="x.level"> 
                 </td>
                 <td class="text-center">
-                  <button class="btn text-sm px-2 ml-3" @click="save(x)">Save
+                  <button class="btn text-sm px-2 py-1" @click="save(x)">Save
                   </button>
                 </td>
 
@@ -66,24 +66,22 @@
         </div>
         <d-msg v-if="iscreate" @close="iscreate=false">
             <div class="p-5 bg-gray-300">
-                <d-input class="dinput-fill" v-model="c.name" label="Nome"></d-input>
-                <d-input class="dinput-fill" v-model="c.email" label="Email"></d-input>
+                <label class="label-fill">Nome</label><input class="input-fill" type="text" v-model="c.name" />
+                <label class="label-fill">Email</label><input class="input-fill" type="text" v-model="c.email" />
                 <div class="flex flex-wrap">
                     <div class="flex-1">
-                    <d-input class="dinput-fill" v-model="c.password" label="Password"></d-input>
+                       <label class="label-fill">Password</label><input class="input-fill" type="text" v-model="c.password" />
                     </div>
                     <button class="btn ml-4 mt-7" @click="c.password=generatePassword(12)">Genera</button>
                 </div>
-                <d-input type="area" class="dinput-fill" v-model="c.des" label="Descrizione"></d-input>
+                <label class="label-fill">Descrizione</label><textarea class="input-fill"  v-model="c.des" />
                 <button class="btn mt-3" @click="create()">Crea</button>
             </div>
         </d-msg>
         <d-msg v-if="isnewpassword" @close="savepassword(valse)">
             <div class="p-4 bg-base-600 text-white text-xl">Imposta Nuova Password: {{uu.name}}</div>
             <div class="p-4 bg-gray-300 ">
-                <d-input type="area" class="dinput-fill font-mono" :rows=3
-                  :value="`User.....: ${uu.name} \nPassword.: ${uu.password}`"
-                />     
+                <textarea class="input-fill font-mono" type="text" rows="3" :value="`User.....: ${uu.name} \nPassword.: ${uu.password}`"/>
                 <p><b>ATTENZIONE: </b>E' stata generata una nuova password per l'utente <b>{{uu.name}}</b>. 
                 Prima di confermare, è  necessario copiare le nuove informazioni di accesso perchè non saranno più disponibili successivamente. </p>
                 <button class="btn mt-3" @click="savepassword('yes')">Reimposta Password</button>

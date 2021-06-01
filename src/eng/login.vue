@@ -1,8 +1,7 @@
 <template>
   <div class="bg-gray-300 h-screen relative overflow-y-scroll">
     <template v-if="isadministrator">
-      <h1>TODO</h1>
-      <!-- <dLoginAdmin class="p-4 bg-gray-100"/> -->
+      <dLoginAdmin class="p-4 bg-gray-100"/>
       <div class="absolute top-0 right-0 mx-3 ">
         <button class="btn2 text-xs" @click="isadministrator = false">
           back
@@ -124,9 +123,9 @@
 <script>
 import { post } from "@eng/post.js";
 import { bus } from "@eng/bus.js";
-//import dLoginAdmin from "@eng/loginadmin.vue";
+import dLoginAdmin from "@eng/loginadmin.vue";
 export default {
-  //components: { dLoginAdmin},
+  components: { dLoginAdmin},
   emits: ["close"],
   data() {
     return {

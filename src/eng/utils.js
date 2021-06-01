@@ -1,6 +1,17 @@
 
 // timer callback: normalizza il tempo per ogni macchina!
 
+if (!Date.prototype.toInt) {
+    Date.prototype.toInt = function () {
+        return this.getDate() + (this.getMonth() + 1) * 100 + this.getFullYear() * 10000
+    }
+  }
+  
+  if (!Date.prototype.toFloat) {
+    Date.prototype.toFloat = function () {
+        return Math.floor(this.getDate() * 10000 + (this.getMonth() + 1) * 1000000 + this.getFullYear() * 100000000 + (this.getHours()) * 100 + this.getMinutes() + .5) / 10000
+    }
+  }
 
 export function loadImage(url) {
     return new Promise(resolve => {
@@ -79,13 +90,13 @@ export function random(min, max) {
         if (min instanceof Array) {
             return min[Math.floor(Math.random() * min.length)];
         } else {
-            return Math.random() * min;
+            return Math.floor(Math.random() * min);
         }
     } else {
         if (min > max) {
             var tmp = min; min = max; max = tmp;
         }
-        return Math.random() * (max - min) + min;
+        return Math.floor(Math.random() * (max - min) + min);
     }
 };
 
