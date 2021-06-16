@@ -27,6 +27,8 @@ router
         var u=dm.checkuser(req,0)
         var {count} = req.body;
         var db=dbBlog();
+        console.log("giammi",dm.config.giammi);
+       // throw new Error("qualcosa non va")
         db.chiudi();
         u.count=count;
         res.send(new Response(req,u))
@@ -35,6 +37,9 @@ router
 .post('/jServizioErr' ,(req, res) => {
     try {
         var u=dm.checkuser(req,9);
+
+        throw new Error("sono collegato ma mando lo stesso un errore");
+
         res.send(new Response(req,u))
     } catch(e) { res.send(new Response(req,null,e)); }
 })

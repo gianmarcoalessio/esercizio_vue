@@ -1,32 +1,32 @@
 <template>
-    <d-warning/>
-    <dWait/>
-    <div class="w-full bg-gray-200">
-      <template v-if="mustlogin()">
-        <d-login @close="ask=false"/>
-      </template>
-      <div v-show="!mustlogin()" >
-        <d-scrollmanager>
-            <router-view/>
-        </d-scrollmanager>
-      </div>
+  <d-warning />
+  <dWait />
+  <div class="w-full bg-gray-200">
+    <template v-if="mustlogin()">
+      <d-login @close="ask = false" />
+    </template>
+
+    <div v-show="!mustlogin()">
+      <d-scrollmanager>
+        <router-view />
+      </d-scrollmanager>
     </div>
-    
+  </div>
 </template>
 
 <script>
-import dWait from "@eng/wait.vue"
+import dWait from "@eng/wait.vue";
 import dLogin from "@eng/login.vue";
 
-import {bus} from "@eng/bus";
-import {post} from "@eng/post";
+import { bus } from "@eng/bus";
+import { post } from "@eng/post";
 
-var ii=0;
+var ii = 0;
 
 export default {
   components: {
-    dWait,dLogin,
-
+    dWait,
+    dLogin,
   },
   data() {
     return {
@@ -45,36 +45,41 @@ export default {
     login() {
       this.ask = true;
       this.mustlogin();
-    }
+    },
   },
   created() {
-    bus.on("login",this.login)
-   
-    post.token().then(d=>{
-      this.loaded=true;
-    }).catch(e=>{
-      console.log("err");
-      post.postbase("auth0/getconfig").then(d=>{
-          post.config = d.config;
-          post.langs = d.langs;
-          post.init = d.init;
-          console.log(post.init);
-          if (!post.init.isguest) {
-            this.ask=true;
-            this.mustlogin();
-          }
-          this.loaded=true;
-      }).catch(e=>{
-        this.ask=true;
-        this.mustlogin()
-        this.loaded=true;
-      })
+    bus.on("login", this.login);
 
-    })
+    post
+      .token()
+      .then((d) => {
+        this.loaded = true;
+      })
+      .catch((e) => {
+        console.log("err");
+        post
+          .postbase("auth0/getconfig")
+          .then((d) => {
+            post.config = d.config;
+            post.langs = d.langs;
+            post.init = d.init;
+            console.log(post.init);
+            if (!post.init.isguest) {
+              this.ask = true;
+              this.mustlogin();
+            }
+            this.loaded = true;
+          })
+          .catch((e) => {
+            this.ask = true;
+            this.mustlogin();
+            this.loaded = true;
+          });
+      });
   },
   beforeUnmount() {
-    bus.off("login",this.login);
-  }
+    bus.off("login", this.login);
+  },
 };
 </script>
 

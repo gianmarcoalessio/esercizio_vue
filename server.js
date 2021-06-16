@@ -7,6 +7,8 @@ const { dm, Response, init, liburno_server } = require("liburno_bklib");
 const { Reset, Bold, Reverse, Red, Green, Yellow, Blue, Magenta, Cyan, White } = init();
 
 var pjson = require('./package.json');
+
+
 if (!pjson.config) throw new Error("missing config in package.json")
 if (!pjson.config.client) pjson.config.client={};
 if (!pjson.config.tk) {
@@ -27,6 +29,8 @@ console.log(`\n\nRestarting ${Cyan}${Bold} ${APPNAME.toUpperCase()} ${Reset}`)
 
 dm.start(__dirname, config);
 dm.appname = `${APPNAME}`;
+
+
 liburno_server(express, app, config);
 
 

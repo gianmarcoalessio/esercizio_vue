@@ -1,6 +1,6 @@
 ###
 
-post http://localhost:3000/servizio/jGetCliente
+post http://localhost:3000/servizio/jServizio
 content-type: application/json
 
 {

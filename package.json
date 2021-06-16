@@ -7,7 +7,8 @@
     "serve": "nodemon server.js"
   },
   "dependencies": {
-    "liburno_bklib": "^3.0.15"
+    "liburno_bklib": "^3.0.15",
+    "three": "^0.129.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.2",
@@ -28,6 +29,7 @@
       "imguser": "tito",
       "imggruppo": "@my"
     },
+    "giammi": "yogamaster",
     "datafolder": "data/_files",
     "static": {
       "libri": "/Users/alessiosfamily/libri"

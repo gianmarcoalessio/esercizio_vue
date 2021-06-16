@@ -5,6 +5,7 @@ import About from "@comp/about.vue"
 import Altro from "@comp/altro.vue"
 import jTreet from "@comp/jtreet.vue"
 import jacopo from "@comp/jacopo.vue"
+import test3d from "@comp/test3d.vue"
 
 
 const routes = [
@@ -13,6 +14,7 @@ const routes = [
   { path: '/altro', component: Altro },
   { path: '/about', component: About },
   { path: '/jtreet',component:jTreet },
+  { path: '/th',component:test3d },
   { path: '/jacopo/:id',component:jacopo },
   { path: '/jacopo',component:jacopo }
 ]

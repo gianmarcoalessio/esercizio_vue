@@ -7,6 +7,8 @@ export default defineConfig({
     alias: {
       '@css': '/css',
       '@comp': '/src/comp',
+      '@th': '/src/th',
+      '@jsm':'/src/th/jsm',
       '@eng': '/src/eng',
       '@svg': '/src/eng/svg'
     }
